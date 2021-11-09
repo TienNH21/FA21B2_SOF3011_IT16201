@@ -30,8 +30,8 @@
 		
 		<div>
 			<label>Chuyên ngành mong muốn</label>
-			<input name="cn_mong_muon" type="checkbox" /> <label>Java</label>
-			<input name="cn_mong_muon" type="checkbox" /> <label>C#</label>
+			<input name="cn_mong_muon" type="checkbox" value="java" /> <label>Java</label>
+			<input name="cn_mong_muon" type="checkbox" value="c#" /> <label>C#</label>
 		</div>
 		
 		<button>Submit</button>

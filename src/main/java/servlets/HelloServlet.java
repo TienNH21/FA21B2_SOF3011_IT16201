@@ -23,4 +23,23 @@ public class HelloServlet extends HttpServlet
 		request.getRequestDispatcher("views/hello.jsp")
 			.forward(request, response);
 	}
+	
+	@Override
+	public void init() {
+		System.out.println("Init");
+	}
+	
+	@Override
+	public void destroy() {
+		System.out.println("Destroy");
+	}
+	
+	@Override
+	public void service(
+		HttpServletRequest request,
+		HttpServletResponse response
+	) throws ServletException, IOException {
+		System.out.println("Service");
+		super.service(request, response);
+	}
 }
