@@ -7,7 +7,10 @@
 <title>Đăng ký tài khoản</title>
 </head>
 <body>
-	<form method="POST" action="/SOF3011_IT16201/register">
+	<form
+		enctype="multipart/form-data"
+		method="POST"
+		action="/SOF3011_IT16201/register">
 		<div>
 			<label>Họ tên</label>
 			<input name="name" type="text" />
@@ -32,6 +35,11 @@
 			<label>Chuyên ngành mong muốn</label>
 			<input name="cn_mong_muon" type="checkbox" value="java" /> <label>Java</label>
 			<input name="cn_mong_muon" type="checkbox" value="c#" /> <label>C#</label>
+		</div>
+		
+		<div>
+			<label>Ảnh đại diện</label>
+			<input type="file" name="avatar" />
 		</div>
 		
 		<button>Submit</button>
