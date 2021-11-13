@@ -18,7 +18,7 @@
 		
 		<div>
 			<label>Chuyên ngành</label>
-			<select name="chuyen_nganh">
+			<select name="nganh">
 				<option value="udpm">UDPM</option>
 				<option value="tktw">TKTW</option>
 				<option value="ltmt">LTMT</option>
