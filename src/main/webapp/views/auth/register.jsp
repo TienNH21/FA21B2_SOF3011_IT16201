@@ -7,6 +7,8 @@
 <title>Đăng ký tài khoản</title>
 </head>
 <body>
+	<!-- Header -->
+	<!-- Sidebar -->
 	<form
 		enctype="multipart/form-data"
 		method="POST"
@@ -41,8 +43,10 @@
 			<label>Ảnh đại diện</label>
 			<input type="file" name="avatar" />
 		</div>
-		
+
 		<button>Submit</button>
 	</form>
+
+	<!-- Footer -->
 </body>
 </html>

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- Header -->
+	<!-- Sidebar -->
 	<form method="POST" action="/SOF3011_IT16201/login">
 		<div>
 			<input type="email" name="email" />
@@ -16,5 +18,7 @@
 		</div>
 		<button>Đăng nhập</button>
 	</form>
+	
+	<!-- Footer -->
 </body>
 </html>

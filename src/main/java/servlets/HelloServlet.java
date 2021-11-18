@@ -20,7 +20,10 @@ public class HelloServlet extends HttpServlet
 			"FPT Polytechnic" : param;
 		
 		request.setAttribute("myName", name);
-		request.getRequestDispatcher("views/hello.jsp")
+		request.setAttribute("diem", 0);
+		
+		request.setAttribute("view", "/views/hello.jsp");
+		request.getRequestDispatcher("/views/layout.jsp")
 			.forward(request, response);
 	}
 	
