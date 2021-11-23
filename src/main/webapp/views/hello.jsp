@@ -11,16 +11,6 @@
 	<h1>Hello SV lop IT16201 mon SOF3011</h1>
 </c:if>
 
-
-<!--
-	Thực hiện truyền tham số diem từ servlet sang jsp.
-	Kiểm tra:
-		diem < 5: Trượt
-		diem < 7: TB
-		diem < 9: Khá
-		diem <= 10: Giỏi
--->
-
 <c:choose>
 	<c:when test="${ diem < 5 }"><p>Trượt</p></c:when>
 	<c:when test="${ diem < 7 }"><p>Trung bình</p></c:when>
@@ -28,5 +18,10 @@
 	<c:when test="${ diem <= 10 }"><p>Giỏi</p></c:when>
 </c:choose>
 
+<ul>
+	<c:forEach items="${ dssv }" var="sv">
+		<li>${ sv }</li>
+	</c:forEach>
+</ul>
 
 <script src="${ pageContext.request.contextPath }/js/hello.js"></script>
