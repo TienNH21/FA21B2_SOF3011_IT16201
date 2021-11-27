@@ -10,41 +10,25 @@
 	<!-- Header -->
 	<!-- Sidebar -->
 	<form
-		enctype="multipart/form-data"
 		method="POST"
 		action="/SOF3011_IT16201/register">
 		<div>
 			<label>Họ tên</label>
-			<input name="name" type="text" />
+			<input name="fullname" type="text" />
 		</div>
-		
 		<div>
-			<label>Chuyên ngành</label>
-			<select name="nganh">
-				<option value="udpm">UDPM</option>
-				<option value="tktw">TKTW</option>
-				<option value="ltmt">LTMT</option>
-			</select>
+			<label>Email</label>
+			<input name="email" type="email" />
 		</div>
-		
 		<div>
-			<label>Giới tính</label>
-			<input type="radio" name="gioi_tinh" value="nam" /> <label>Nam</label>
-			<input type="radio" name="gioi_tinh" value="nu" />  <label>Nữ</label>
+			<label>Mật khẩu</label>
+			<input name="password" type="password" />
 		</div>
-		
 		<div>
-			<label>Chuyên ngành mong muốn</label>
-			<input name="cn_mong_muon" type="checkbox" value="java" /> <label>Java</label>
-			<input name="cn_mong_muon" type="checkbox" value="c#" /> <label>C#</label>
+			<label>Xác nhận mật khẩu</label>
+			<input name="password_confirm" type="password" />
 		</div>
-		
-		<div>
-			<label>Ảnh đại diện</label>
-			<input type="file" name="avatar" />
-		</div>
-
-		<button>Submit</button>
+		<button>Đăng ký</button>
 	</form>
 
 	<!-- Footer -->

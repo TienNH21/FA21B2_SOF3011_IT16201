@@ -15,4 +15,12 @@ public class JpaUtil {
 
 		return factory;
 	}
+	
+	public static EntityManager getEntityManager() {
+		if (entityManager == null || entityManager.isOpen() == false) {
+			entityManager = getEntityManagerFactory().createEntityManager();
+		}
+		
+		return entityManager;
+	}
 }
