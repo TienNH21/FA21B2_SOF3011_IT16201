@@ -4,14 +4,11 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
-
-/**
- * The persistent class for the favorites database table.
- * 
- */
 @Entity
 @Table(name="favorites")
-@NamedQuery(name="Favorite.findAll", query="SELECT f FROM Favorite f")
+@NamedQueries(
+	@NamedQuery(name="Favorite.findAll", query="SELECT f FROM Favorite f")
+)
 public class Favorite implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,8 +20,9 @@ public class Favorite implements Serializable {
 	@Column(name="like_date")
 	private Date likeDate;
 
-	@Column(name="user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 	@Column(name="video_id")
 	private int videoId;
@@ -48,12 +46,12 @@ public class Favorite implements Serializable {
 		this.likeDate = likeDate;
 	}
 
-	public int getUserId() {
-		return this.userId;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public int getVideoId() {

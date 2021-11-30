@@ -1,6 +1,8 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -25,8 +27,19 @@ public class User implements Serializable {
 
 	@Column(name="password")
 	private String password;
+	
+	@OneToMany(mappedBy="user")
+	private List<Favorite> favorites;
 
 	public User() {
+	}
+	
+	public List<Favorite> getFavorites() {
+		return favorites;
+	}
+
+	public void setFavorites(List<Favorite> favorites) {
+		this.favorites = favorites;
 	}
 
 	public int getId() {
