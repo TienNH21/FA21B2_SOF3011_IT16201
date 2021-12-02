@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import entities.User;
@@ -67,5 +68,23 @@ public class UserDAO {
 		List<User> list = query.getResultList();
 		
 		return list;
+	}
+	
+	public User login(String email, String password) {
+		String hql = "SELECT u FROM User u "
+			+ "WHERE u.email = :email AND u.password = :pwd";
+		
+		TypedQuery<User> query = this.em.createQuery(hql, User.class);
+		query.setParameter("email", email);
+		query.setParameter("pwd", password);
+		
+		try {
+			User u = query.getSingleResult();
+			return u;
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 }

@@ -8,9 +8,19 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.UserDAO;
+import entities.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+	private UserDAO userDAO;
+	
+	public LoginServlet() {
+		this.userDAO = new UserDAO();
+	}
+	
 	protected void doGet(
 		HttpServletRequest request,
 		HttpServletResponse response
@@ -42,26 +52,18 @@ public class LoginServlet extends HttpServlet {
 		HttpServletRequest request,
 		HttpServletResponse response
 	) throws ServletException, IOException {
-		Cookie[] dsCookie = request.getCookies();
-		int soLanLogin = 0;
-		for (Cookie cookie : dsCookie) {
-			if (cookie.getName().equals("so_lan_login")) {
-				soLanLogin = Integer.parseInt( cookie.getValue() );
-				soLanLogin++;
-				
-				cookie.setValue(soLanLogin + "");
-				response.addCookie(cookie);
-			}
-		}
-		
-		if (soLanLogin >= 3) {
-			System.out.println("Đăng nhập thất bại quá nhiều. Vui lòng đợi 5 phút!");
-		}
-
 		String email = request.getParameter("email"),
 			password = request.getParameter("password");
 		
-		System.out.println(email + "---" + password);
-		doGet(request, response);
+		User user = this.userDAO.login(email, password);
+		
+		if (user == null) {
+			doGet(request, response);
+		} else {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			
+			response.sendRedirect("/SOF3011_IT16201/admin/users");
+		}
 	}
 }
